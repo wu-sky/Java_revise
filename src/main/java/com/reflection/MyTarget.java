@@ -7,15 +7,15 @@ import java.lang.reflect.Modifier;
 /**
  * Created by admin on 2019/5/14.
  */
-public class Target {
+public class MyTarget {
     private String privateName;
     //注意: 常理来说在本类外面是无法访问到private的, 但是反射就是那么强大
     public String publicName;
     //为什么Javabean规范必须必须有无参构造函数, 自己调用自己, 创建的对象就是调用无参构造器,
     // 有参的没法做成框架, 因为不懂你里面是什么参数.
-    public Target() {
+    public MyTarget() {
     }
-    public Target(String privateName) {
+    public MyTarget(String privateName) {
 
         this.privateName = privateName;
         System.out.println("我是有参构造器, "+privateName);
@@ -59,8 +59,8 @@ public class Target {
         Class<?> target1=null;//这个东西, 我也不知道是哪个类的对象
         Class<?> target2=null;
         Class<?> target3=null;
-        target1=new Target().getClass();//为什么乐哥说的每个Javabean要有一个无参构造函数
-        target2= Target.class;
+        target1=new MyTarget().getClass();//为什么乐哥说的每个Javabean要有一个无参构造函数
+        target2= MyTarget.class;
 
         try {
             String classname="classname";//这个类名写不对就会报异常
@@ -76,6 +76,7 @@ public class Target {
             //若我把类名路径作为一个字符串, 存在database/file里面,  我用反射就能调用这个类, 你的jdbc, spring ioc就是用这种方法.
             target3=Class.forName(classname);
             System.out.println("target3:"+target3);
+
         }catch (Exception e){
             System.out.println(e);
         }
@@ -123,8 +124,8 @@ public class Target {
             System.out.println(fieldSingle.getModifiers()+"  "+fieldSingle.getName()+"  "+fieldSingle.getType());
             fieldSingle.setAccessible(true);
             Constructor constructor=target.getConstructor(String.class);
-            Target t=(Target)constructor.newInstance("我卢本伟真的没有开挂");
-            fieldSingle.set((Target)t,"艹尼玛");
+            MyTarget t=(MyTarget)constructor.newInstance("我卢本伟真的没有开挂");
+            fieldSingle.set((MyTarget)t,"艹尼玛");
             System.out.println(t.toString());
         } catch (Exception e) {
             e.printStackTrace();
@@ -178,7 +179,7 @@ public class Target {
             Constructor<?>[] constructors=target.getConstructors();
             //String.class是获取String的class对象, 注意这个是类对象不是普通对象
             Constructor<?> conSingle=target.getConstructor(String.class);
-            Target t=(Target)conSingle.newInstance("我被调用了");//通过反射不new却能创建一个对象
+            MyTarget t=(MyTarget)conSingle.newInstance("我被调用了");//通过反射不new却能创建一个对象
             for(Constructor<?> c:constructors){
                 //用一个类型容器去装这些类型的类
                 Class<?>[] ps=c.getParameterTypes();//获得构造器的参数列表类型[可能有String, int, boolean...]
