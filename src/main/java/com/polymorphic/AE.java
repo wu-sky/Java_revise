@@ -1,6 +1,6 @@
 package com.polymorphic;
 
-import org.junit.Test;
+
 
 /*
  *用户：sky-吴
