@@ -1,16 +1,12 @@
 package com.io;
 
-import org.junit.Test;
+
 
 import java.io.File;
 import java.io.IOException;
-
-/*
- *用户：sky-吴
- *日期：2020/4/25
- */
-
 /**
+ * @author：sky-吴
+ * 日期：2020/4/25
  * 常识:
  *在Java中, 有个分隔符常量		File.separator  在win 中是\ , 在Linux中是 /
  *在idea工程中 相对路径是工程名下的路径 , 如: E:\Java\codeLibraries\JavaSE\Java_revise
@@ -18,10 +14,8 @@ import java.io.IOException;
 public class FileDemo {
 
 
-	@Test
+
 	public  void  test(){
-
-
 		File absoluteFile = new File("E:\\Java\\codeLibraries\\JavaSE\\Java_revise\\src\\main\\java\\com\\io\\absoluteFile.txt");
 		/*现在这个file 只是一个内存层面的对象而已, 并没有去访问 磁盘
 		第一个参数是父目录, 第二个文件是子目录 , 其实就是 d:/temp/test 目录*/
@@ -30,8 +24,6 @@ public class FileDemo {
 		File realFile= new File(dir, "1.txt");
 		showFileIO(realFile);
 		showFileProperties(realFile);
-
-
 	}
 
 	/**
@@ -44,9 +36,9 @@ public class FileDemo {
 
 	    	File dir=new File(file.getParent());
 		   if (!dir.exists()){
-			   System.out.print("父目录不存在!! ");
+			   System.out.print("父目录"+dir.getAbsolutePath()+" 不存在!! ");
 			   dir.mkdirs();
-			   System.out.println("父目录创建成功");
+			   System.out.println("父目录"+dir.getAbsolutePath()+" 创建成功");
 		   }
 		    try {
 			    boolean crateResult = file.createNewFile();
@@ -56,7 +48,7 @@ public class FileDemo {
 			    e.printStackTrace();
 		    }
 	    }else{
-			System.out.print("文件存在");
+			System.out.print("文件已存在");
 			file.delete();
 			System.out.println(", 已经删掉");
 		}

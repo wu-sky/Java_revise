@@ -57,6 +57,7 @@ class Account1 extends Thread {
         this.account = account;
     }
 
+    @Override
     public void run() {
         account.withDraw(800);
         System.out.println("余额为" + account.getBalance());
@@ -71,6 +72,7 @@ class Account2 extends Thread {
         this.account = account;
     }
 
+    @Override
     public void run() {
         account.withDraw(700);
         System.out.println("余额为 " + account.getBalance());

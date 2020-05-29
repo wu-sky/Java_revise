@@ -1,10 +1,9 @@
-package com.Collection;
+package com.sky.collections.collection;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class DictUtil {
-
 	public static void main(String[] args){
 		Map<String, String> map=new HashMap<>();
 		map.put("a","1");
@@ -14,7 +13,6 @@ public class DictUtil {
 		for (String key :map.keySet()		     ) {
 			System.out.println(key + " ：" + map.get(key));
 		}
-
 
 		Map<String, Map<String, String>> allMap=new HashMap<>();
 		allMap.put("a", map);
@@ -27,11 +25,7 @@ public class DictUtil {
 			}
 		}
 	}
-
-
 }
-
-
 /*
  *用户：sky-吴
  *日期：2019/8/1

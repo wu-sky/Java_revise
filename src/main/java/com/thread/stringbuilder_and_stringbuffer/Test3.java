@@ -9,6 +9,7 @@ public class Test3 implements Runnable {
     StringBuilder builder = new StringBuilder();
     StringBuffer buffer = new StringBuffer();
 
+    @Override
     public void run() {
         try {
             Thread.sleep((int) (Math.random() * 2));

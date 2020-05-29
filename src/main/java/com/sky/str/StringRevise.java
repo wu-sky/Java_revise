@@ -1,6 +1,7 @@
 package com.sky.str;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
@@ -14,7 +15,7 @@ public class StringRevise {
     public static void codeStr() throws UnsupportedEncodingException {
 
         String str1=new String("123abc伍思凯");
-        System.out.println("str1.getBytes(utf-8) = " + Arrays.toString(str1.getBytes()));
+        System.out.println("str1.getBytes(utf-8) = " + Arrays.toString(str1.getBytes(StandardCharsets.UTF_8)));
         System.out.println("str1.getBytes(gbk) = " + Arrays.toString(str1.getBytes("gbk")));
         byte[] bytes={49, 50, 51, 97, 98, 99, -28, -68, -115, -26, -128, -99, -27, -121, -81};
         String str2=new String(bytes);

@@ -1,4 +1,4 @@
-package com.classCast;
+package com.sky.classCast;
 
 /*
  *用户：sky-吴
@@ -19,9 +19,10 @@ public class Son extends Father {
 		this.name = name;
 	}
 
+	@Override
 	public String getGirlFriend() {
 		girlFriend="杨玉环";
-		return girlFriend;
+		return "子类的"+girlFriend;
 	}
 
 	public void setGirlFriend(String girlFriend) {

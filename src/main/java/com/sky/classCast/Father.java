@@ -1,4 +1,4 @@
-package com.classCast;
+package com.sky.classCast;
 
 /*
  *用户：sky-吴
@@ -13,8 +13,10 @@ public class Father {
 	}
 
 	public void setName(String name) {
-
-
 		this.name = name;
+	}
+
+	public String getGirlFriend() {
+		return "父类的杨玉环";
 	}
 }
