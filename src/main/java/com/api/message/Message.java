@@ -13,6 +13,7 @@ import java.util.Map;
  *日期：2019/9/16
  */
 public class Message {
+	/*云智信的短信服务*/
 	public static void main(String[] args) {
 		String host = "http://yzxyzm.market.alicloudapi.com";
 		String path = "/yzx/verifySms";
@@ -24,7 +25,9 @@ public class Message {
 		Map<String, String> querys = new HashMap<String, String>();
 		querys.put("phone", "15932072636");
 		querys.put("templateId", "TP18040314");
-		querys.put("variable", "code:1234");
+		//第二个参数是固定格式的, 不能改
+		String code="自定义(字母加数字)";
+		querys.put("variable", "code:"+code);
 		Map<String, String> bodys = new HashMap<String, String>();
 
 

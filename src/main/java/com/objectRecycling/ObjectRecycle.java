@@ -14,6 +14,7 @@ public class ObjectRecycle {
         System.out.println(str + "对象已创建");
     }
 
+    @Override
     public void finalize() {
         System.out.println("系统正在清理对象的资源...");
     }

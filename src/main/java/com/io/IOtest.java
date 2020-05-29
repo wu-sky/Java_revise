@@ -1,4 +1,5 @@
 package com.io;
+
 import java.io.*;
 /**
  * Created by admin on 2019/5/13.
@@ -59,9 +60,10 @@ public class IOtest {
         }
     }
 
-    public static void bufferedReaderString(String[] args) {
+    public  void bufferedReaderString() {
 
-        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bufferedReader=new BufferedReader(
+                new InputStreamReader(System.in));
         String str="aaa";
         System.out.println("type  end  to  quit ");
         while(!"end".equals(str)){
@@ -72,11 +74,7 @@ public class IOtest {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
         }
-
-
     }
 
     /**
@@ -104,10 +102,6 @@ public class IOtest {
                 System.out.println(str);
 
             }
-
-
-
-
             bufferedReader.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,14 +109,15 @@ public class IOtest {
     }
 
     /**
-     * fileInputStreamFile
-     * @param args
+     * inputStream 针对的是文件, 进入文件里面 -> file
+     * readFile
      */
-    public static void fileInputStreamFile(String[] args) {
-        System.out.println("---------fileInputStream------------");
+    public  void readFile() {
+        System.out.println("---------read file with FileInputStream------------");
         FileInputStream fileInputStream=null;
         try {
-            fileInputStream=new FileInputStream("./test.txt");
+            //fileInputStream=new FileInputStream("./test.txt");
+            fileInputStream=new FileInputStream("d:/temp/first.png");
             byte b[]=new byte[1024];
             int len=b.length;
             //这个len确保从文件中读取的数据一个不多一个不少.
