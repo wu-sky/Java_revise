@@ -6,7 +6,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import static com.sky.encryption.Base64Demo.decryptBASE64;
-import static com.sky.encryption.Base64Demo.encryptBASE64;
+import static com.sky.encryption.Coder.encryptBASE64;
 
 /**
  * @author：吴世凯 邮箱：

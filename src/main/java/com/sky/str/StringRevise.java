@@ -2,7 +2,10 @@ package com.sky.str;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author 吴世凯
@@ -28,10 +31,9 @@ public class StringRevise {
 
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        codeStr();
+        //codeStr();
+        ///databaseField2JavaField();
+
     }
-
-
-
 
 }

@@ -1,16 +1,19 @@
-package com.anno;
+package com.sky.anno;
 
 
 
 import java.lang.annotation.*;
 
 /**
- * @author：sky-吴 用户注解
- * @create：2020-1-7 创建日期注解
+ * @author sky-吴 用户注解
+ * create  2020-1-7 创建日期注解
+ * 应用场景一 自定义注解+拦截器 实现登录校验
+ * 应用场景二 自定义注解+AOP 实现日志打印
+ * 还有其他框架应用场景, 得找源码阅读了....
  */
 
 @Inherited //注解标记的可以继承??
-@Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE, ElementType.TYPE_PARAMETER})
+@Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD,ElementType.PARAMETER, ElementType.TYPE, ElementType.TYPE_PARAMETER})
 //这个target 可以修饰(方法, 构造器, 参数, 类, 泛型), 就是说放在(方法, 构造器, 参数, 类, 泛型)上面
 @Retention(RetentionPolicy.RUNTIME) //Retention 这个注解将被加载到内存中
 public @interface MyAnnotation {

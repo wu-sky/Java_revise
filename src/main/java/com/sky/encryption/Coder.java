@@ -12,7 +12,7 @@ import sun.misc.BASE64Encoder;
  
 /**
  * 基础加密组件
- * 
+ *  只能再jdk1.8中跑, Java11有些类已经不存在了
  * @author 梁栋
  * @version 1.0
  * @since 1.0
