@@ -81,8 +81,8 @@ public class Md5Demo {
     }
 
     public static void main(String[] args) {
-        String str="devName=my_device&merId=15e39ae372444ec2a3b8e65b9dccba1a&proKey=a1n4vb9ELL3&reqTime=2020-05-11 02:28:474&signType=MD5&storeId=0084a912d651452ba820252ae531b5c1&userId=15d0cb80-0400-45ab-8442-86ada036d97d&version=1.0&key=011490";
-        String str1="devName=my_device&proKey=a1n4vb9ELL3&reqTime=2020-05-11 02:28:474&signType=MD5&userId=15d0cb80-0400-45ab-8442-86ada036d97d&version=1.0&key=011490";
+        String str="devName=my_device&merId=15e39ae372444ec2a3b8e65b9dccba1a&proKey=a1n4vb9ELL3&reqTime=2020-05-11 02:28:474&signType=MD5&storeId=0084a912d651452ba820252ae531b5c1&userId=15d0cb80-0400-45ab-8442-86ada036d97d&version=1.0&DES_KEY=011490";
+        String str1="devName=my_device&proKey=a1n4vb9ELL3&reqTime=2020-05-11 02:28:474&signType=MD5&userId=15d0cb80-0400-45ab-8442-86ada036d97d&version=1.0&DES_KEY=011490";
        String sign=getMD5(str1, 32);
        System.out.println("sign = \n" + sign.toUpperCase());
       //  encryptByMd5("version=1.0&signType=MD5&proKey=a1n4vb9ELL3&devName=my_device&merId=15e39ae372444ec2a3b8e65b9dccba1a&storeId=0084a912d651452ba820252ae531b5c1&userId=15d0cb80-0400-45ab-8442-86ada036d97d");

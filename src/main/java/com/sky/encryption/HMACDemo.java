@@ -5,7 +5,8 @@ import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-import static com.sky.encryption.Base64Demo.decryptBASE64;
+
+import static com.sky.encryption.Coder.decryptBASE64;
 import static com.sky.encryption.Coder.encryptBASE64;
 
 /**
