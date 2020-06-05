@@ -1,4 +1,4 @@
-package com.io;
+package com.sky.io;
 
 import java.io.*;
 
@@ -137,7 +137,7 @@ public class FileCopyDemo extends Thread{
                 c=str.toCharArray();
 
                 System.out.println("读取的数据是==>"+ str);
-                bufferedWriter.write(str,0,str.length());
+                bufferedWriter.write(str,0,    str.length());
                 sleep(1000);
                 //往文件中写数据
                 bufferedWriter.flush();
