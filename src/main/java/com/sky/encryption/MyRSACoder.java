@@ -34,7 +34,7 @@ import javax.crypto.Cipher; //一般来说这个是jdk里面的类, 为什么分
  * 其中包括证书申请、证书更新、证书作废表发布、扩展证书内容以及数字签名、数字信封的格式等方面的一系列相关协议
  *  https://baike.baidu.com/item/PKCS/1042350?fr=aladdin
  *
- *  X.509==> 是密码学里公钥证书的格式标准 https://baike.baidu.com/item/X.509?fromtitle=x509
+ *  X.509==> 是密码学里 公钥 证书的格式标准 https://baike.baidu.com/item/X.509?fromtitle=x509
  *
  *
  */
@@ -186,9 +186,7 @@ public class MyRSACoder {
 
 
 
-    /**
-     * @throws Exception
-     */
+
     public static void main(String[] args) {
         try {
 

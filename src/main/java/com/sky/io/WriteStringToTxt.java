@@ -83,7 +83,7 @@ public class WriteStringToTxt {
         // new WriteStringToTxt().WriteStringToFile2(filePath);
         // new WriteStringToTxt().WriteStringToFile3(filePath);
         // new WriteStringToTxt().WriteStringToFile4(filePath);
-        new WriteStringToTxt().WriteStringToFile(filePath);
+        new WriteStringToTxt().WriteStringToFile2(filePath);
     }
 }
 
