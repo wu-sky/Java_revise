@@ -47,10 +47,7 @@ public class DbCamelStr {
             }
             // str = str.replace("_", "");
             stringsJava.add(str);
-
-
         }
-
         System.out.println(stringsJava);
 
 
