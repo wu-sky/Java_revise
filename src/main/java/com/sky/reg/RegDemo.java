@@ -51,8 +51,22 @@ public class RegDemo {
 
         //字符串替换 --------------------------------------------------------
         //String 中的替换方法, 底层调用的也是正则表达式
-        String str1 = errorStr.replace("aa", "bb"); //String 的这个方法底层 使用的就是 正则
-        System.out.println("replace = " + str1);
+        String str1 =" aa bb cc aaa bbb ccc";
+        String str2 = str1.replace("aa", "bb"); //String 的这个方法底层 使用的就是 replaceAll(regStr, str)
+        System.out.println("replaced = " + str2);
+
+
+        //将重叠的字符替换成单个字母。zzzz->z
+        String str3 = "erkktyqqquizzzzzo";
+        String str4 = str3.replaceAll("(.)\\1+","$1");
+       // String str4 = str3.replaceAll("(.)+","$1");
+       //错误 String reg1="\\.+"; 你这个. 是任意字符, 同不同都可以
+       // String str4 = str3.replaceAll(reg1,"$1");
+
+        System.out.println("str4 = " + str4);
+
+
+
         //------------------------------------------------------------------
 
 
@@ -66,19 +80,13 @@ public class RegDemo {
             System.out.println("str = " + str);
         }
 
+        String str5 = "   MP4   avi   rmvb   mov  ";
+        String regSplit1 = "\\s+";//按照多个空格来进行切割
+        String[] splitStrings1 = str2.split(regSplit1);
+        System.out.println("splitStrings.length = " + splitStrings.length);
+
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
