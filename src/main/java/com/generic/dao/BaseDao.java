@@ -1,5 +1,8 @@
 package com.generic.dao;
 
+import com.generic.Model;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -7,7 +10,7 @@ import java.util.Map;
  *用户：sky-吴
  *日期：2019/7/31
  */
-public class BaseDao<E> implements IBaseDao<E> {
+public class BaseDao<E extends Model> implements IBaseDao<E> {
 	@Override
 	public E getObjById(long id) {
 
@@ -17,6 +20,11 @@ public class BaseDao<E> implements IBaseDao<E> {
 
 	@Override
 	public List<E> list(Map<String, Object> param) {
+		System.out.println("base list");
+		System.out.println();
+		List<E> list=new ArrayList<>();
+
+
 		return null;
 	}
 
