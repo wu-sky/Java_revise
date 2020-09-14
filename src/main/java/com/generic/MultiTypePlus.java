@@ -3,6 +3,7 @@ package com.generic;
 import com.accessControl.control.E;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -16,7 +17,8 @@ import java.util.*;
  * T：类型（Type）
  * V：值（Value）
  *
- * @author : wushikai https://www.jianshu.com/p/986f732ed2f1
+ * @author : wushikai
+ * ref: https://www.jianshu.com/p/986f732ed2f1
  * <p>
  * date : 2020-08-04
  */
@@ -43,20 +45,19 @@ public class MultiTypePlus {
         return a.doubleValue() + b.doubleValue();
     }
 
-    /**---------------------------------泛型方法----------------------------------------------------
-     * 术语: 带< xxx>  的方法叫做 泛型方法, 必须有 <T> 来强制指定类型, 好处是 类型不匹配直接报错
-     * 例如 new List<String>();
+    /**--------------------------------术语-泛型方法----------------------------------------------------
+     * 带< xxx>  的方法叫做 泛型方法, 必须有 <T> 来强制指定类型, 好处是 类型不匹配编译器直接报错
+     * 例如 new List<String>(); 就必须装String
      * 要不然 本来装水的list 被你装了硫酸, 拿出来喝的时候, 出了事故 */
     private static <T> T genericAdd(T a, T b) {
         System.out.println(a + "+" + b + "=" + a + b);
         return a;
     }
-    /*
+    /**
     上面这些方法体现了泛型的
       1.适用于多种数据类型执行相同的代码（代码复用）
       2.泛型中的类型在使用时指定,不需要强制类型转换（类型安全,编译器会检查类型）
     * */
-
     public static <T> T getMiddle(T ... t){ //第一次见过这种写法
 
         return t[t.length/2];
@@ -85,7 +86,8 @@ public class MultiTypePlus {
         System.out.println("stringResult = " + stringResult);
 
         /* 可以明显的看出泛型方法的好处就是强制了类型, 防止ClassCastException  */
-        //Float FloatResult = MultiTypePlus.<Integer>genericAdd(1.0F, 2.0F);   //genericAdd (java.lang.Integer, java.lang.Integer) in MultiTypePlus cannot be applied to (float, float)
+        //Float FloatResult = MultiTypePlus.<Integer>genericAdd(1.0F, 2.0F);
+        // genericAdd (java.lang.Integer, java.lang.Integer) in MultiTypePlus cannot be applied to (float, float)
         // System.out.println("FloatResult = " + FloatResult);
         //原生态类型（没有类型参数的泛型）是合法的，但是永远不应该这么做, List 可以不带 <泛型类型> , 但是做么做就失掉了泛型在安全性和描述性方面的所有优势
         List list = new ArrayList();
@@ -112,7 +114,7 @@ public class MultiTypePlus {
 
 /**
  * 泛型类
- * 泛型中的约束和局限性
+ * ------------------------------------------------泛型中的约束和局限性------------------------------------------
  * 1:不能实例化泛型类
  * 2:静态变量或方法不能引用泛型类型变量，但是静态泛型方法是可以的
  * 3:基本类型无法作为泛型类型
@@ -121,9 +123,22 @@ public class MultiTypePlus {
  * 6:泛型数组可以声明但无法实例化
  * 7:泛型类不能继承Exception或者Throwable
  * 8:不能捕获泛型类型限定的异常但可以将泛型限定的异常抛出
- */
-// 泛型类型变量  这个类 < T > 就是 泛型类型变量
-class GenericClass<T> {   //术语: 带< xxx> 的类, 叫做泛型类,  例如ArrayList 就是一个泛型类 ,  GenericClass 这个也是一个泛型类
+ *
+ *
+ *
+ *-----------------------------------------------术语-泛型类型变量:  这个类中的 < T > 就是 泛型类型变量----------------
+ *
+ *----------------------------------------------术语-泛型类: 带< xxx> 的类, 叫做泛型类---------------------------------
+ *
+ *
+ *  例如ArrayList 就是一个泛型类 ,  GenericClass 这个也是一个泛型类
+ *
+ *
+ *
+ *
+ *
+ * */
+class GenericClass<T> {
     private T data;
 
     public T getData() {
@@ -351,8 +366,14 @@ class UserDao implements IDao<User> {
 
     public static void main(String[] args) throws NoSuchMethodException {
         UserDao userDao = new UserDao();
+        Class<? extends UserDao> userDaoClass = userDao.getClass();
+        Method userDaoClassMethod = userDaoClass.getMethod("add", User.class);
+
         Method method = userDao.getClass().getMethod("add", User.class);
-        Type[] types = method.getGenericParameterTypes();
+        Parameter[] parameters = userDaoClassMethod.getParameters();
+
+        //获取泛型参数类型
+        Type[] types = userDaoClassMethod.getGenericParameterTypes();
         for(Type actualTypeArgument: types) {
             System.out.println(actualTypeArgument);
         }
@@ -417,13 +438,12 @@ class GenericRestrict<T extends Number> {
 }
 
 
-//----------------泛型 通配符类型  -------------------------
 
-/*
-*
-1,<? extends Parent> 指定了泛型类型的上届
-2,<? super Child> 指定了泛型类型的下届
-3, <?> 指定了没有限制的泛型类型
+/**
+* ----------------------------------泛型 通配符类型  -------------------------
+1,<? extends Parent> 指定了泛型类型的上界
+2,<? super Child> 指定了泛型类型的下界
+3,<?> 指定了没有限制的泛型类型
 *
 * */
 
@@ -661,9 +681,14 @@ class GenericUtils {
      * @param sortMode   true正序，false逆序
      */
     private static <T> void sortAnyList(List<T> targetList, final String sortField, final boolean sortMode) {
+
+
+   /*    //入口检查
         if (targetList == null || targetList.size() < 2 || sortField == null || sortField.length() == 0) {
             return;
         }
+        */
+
         Collections.sort(targetList, new Comparator<Object>() {
             @Override
             public int compare(Object obj1, Object obj2) {

@@ -15,6 +15,23 @@ import java.util.regex.Pattern;
 public class StringRevise {
 
 
+
+    public  static void judgeContain ( ){
+
+        String  str = "包含收银宝账号，如：大龙火锅盛天地店，990611063006001";
+
+        System.out.println(        str.indexOf("990611063006001") != -1 );
+
+    }
+
+
+
+
+
+
+
+
+
     public static void codeStr() throws UnsupportedEncodingException {
 
         String str1=new String("123abc伍思凯");
@@ -34,12 +51,22 @@ public class StringRevise {
         //codeStr();
         ///databaseField2JavaField();
 
+        String  str = "包含收银宝账号，如：大龙火锅盛天地店，990611063006001";
+
+        System.out.println(        str.indexOf("990611063006001") != -1 );
+
 
         ArrayList<String> list=new ArrayList<>();
         list.add("a");
         list.add("b");
         list.add("c");
         System.out.println(list.get(0));
+
+        String str1 = "abc";
+        String str2 = "abc";
+        System.out.println( str1.contains(str2));
+
+
 
     }
 
